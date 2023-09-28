@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Form-v6 by Colorlib</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="css/nunito-font.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+<!--	base-->
+	<meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'stylereport.css' %}">
+     <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'style_navbar.css' %}">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static 'style1.css' %}">
+
+</head>
+
+<body class="form-v6">
+<div>
+	<!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+<!--            <a href="index.html" class="navbar-brand ml-lg-3">-->
+                <img src="{% static 'gtec.PNG' %}" alt="" style=height:80px;width:60px>
+                <h1 class="m-0 text-uppercase text-primary">
+<!--                    <i class="fa fa-book-reader mr-3"></i>-->
+                    Perumbavoor</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    <a href="{% url 'index' %}" class="nav-item nav-link active">Home</a>
+                    <a href="{% url 'enquiry' %}" class="nav-item nav-link">Enquiry</a>
+                    <a href="{% url 'admission' %}" class="nav-item nav-link">Admission</a>
+                   <a href="{% url 'addon_home' %}" class="nav-item nav-link">Add On</a>
+
+                    <a href="{% url 'report' %}" class="nav-item nav-link">Reports</a>
+                </div>
+                <a href="{% url 'login' %}" class="btn btn-primary py-2 px-4 d-none d-lg-block">Log out</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+</div>
+	<div class="page-content" style="padding-top: 1px;">
+		<div class="form-v6-content" >
+			<div class="form-left" >
+
+				<img src="{% static 'enquiry.PNG' %}" alt="" style=height:570px;width:500px>
+			</div>
+			<form class="form-detail" action="#" method="post">
+				{% csrf_token %}
+				<h2>Enquiry Form</h2>
+				<div class="form-row">
+					<input type="text" name="name"  class="input-text" placeholder="Your Name" required>
+				</div>
+				<div class="form-row">
+					<input type="text" name="address"  class="input-text" placeholder=" Address" >
+				</div>
+				<div class="form-row">
+					<input type="number" name="contact" class="input-text" placeholder="Contact Number" required>
+				</div>
+				<div class="form-row">
+					<input type="text" name="course"  class="input-text" placeholder="Course" >
+				</div>
+								<div class="form-row-last">
+					<div class="form-row">
+
+					<input type="Date" name="enq_date"  class="input-text" placeholder="Course" id="todayDate">
+				<script>
+        document.getElementById('todayDate').valueAsDate = new Date();
+    </script>
+					</div>
+					<input type="submit" name="register" class="register" value="Register">
+				</div>
+			</form>
+		</div>
+	</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

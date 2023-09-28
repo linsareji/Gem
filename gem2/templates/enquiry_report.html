@@ -1,0 +1,108 @@
+{% extends 'base.html'%}
+<!--{% load static %}-->
+
+{% block body %}
+	<form method="post">
+    {% csrf_token %}
+    <label for="start_date">Start Date:</label>
+    <input type="date" id="start_date" name="start_date" value="{{ start_date }}">
+    <label for="end_date">End Date:</label>
+    <input type="date" id="end_date" name="end_date" value="{{ end_date }}">
+    <button type="submit">Search</button>
+</form>
+<div class="container">
+<div class="table-responsive">
+
+	<h2 style="color:#b49a3c;"> Enquiry Report</h2>
+	<style>
+.container {
+    height: 400px; /* Set a fixed height */
+    overflow: auto; /* Enable scrolling if necessary */
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #DDD;
+}
+
+tr:hover {background-color: #D6EEEE;}
+
+
+/* Add this CSS to style the form */
+form {
+  display: flex; /* Make form items display in a row */
+  justify-content: space-between; /* Add space between items */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 10px; /* Reduce margin */
+}
+
+label {
+  font-family: Arial, sans-serif; /* Add your desired font family */
+  font-size: 16px; /* Add your desired font size */
+  font-weight: bold; /* Add your desired font weight */
+  color: #555; /* Add your desired font color */
+  margin-bottom: 0; /* Remove extra bottom margin */
+}
+
+input[type="date"] {
+  width: 40%; /* Set a specific width for date inputs */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+</style>
+
+
+
+	<table>
+		<thead>
+			<tr>
+<!--				<th></th>-->
+				<th>Serial No</th>
+				<th>Student Name</th>
+				<th>Address</th>
+				<th>Contact Number</th>
+				<th>Course</th>
+				<th>Date</th>
+				</tr>
+		</thead>
+		<tbody>
+        {% for i in report %}
+			<tr>
+<!--				<td> <a class="btn btn-success" href="{% url 'delete' i.id %}">Join Us</a></td>-->
+				<td>{{ i.id }}</td>
+				<td>{{ i.name }}</td>
+				<td>{{ i.address}}</td>
+				<td>{{ i.contact}}</td>
+				<td>{{ i.course}}</td>
+				<td>{{ i.enq_date}}</td>
+
+			</tr>
+{% endfor %}
+
+		</tbody>
+	</table>
+</div>
+	</div>
+
+{% endblock %}
+<!--</body>-->
+<!--</html>-->

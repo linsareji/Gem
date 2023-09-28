@@ -1,0 +1,69 @@
+{% extends 'base.html'%}
+<!--{% load static %}-->
+
+{% block body %}
+
+<div class="container">
+	<h2 style="color:#b49a3c;padding-top:50px"> Student Report</h2>
+	<style>
+
+.container {
+    height: 600px; /* Set a fixed height */
+    overflow: auto; /* Enable scrolling if necessary */
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #DDD;
+
+}
+th{
+    color:black;
+
+}
+tr:hover {
+ background-color: #D6EEEE;
+ color:black;}
+</style>
+	<form action="{% url 'generate_pdf' %}" method="get" style="border: 0px solid ;
+    padding: 0px 0px 0px;">
+    <button type="submit">Download PDF</button>
+</form>
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+				<th>Serial No</th>
+				<th> Reg No</th>
+				<th>Student Name</th>
+				<th>Contact Number</th>
+				<th>Course</th>
+				<th>Joining Date</th>
+				<th>Exam Date</th>
+				</tr>
+		</thead>
+		<tbody>
+        {% for i in stud_report %}
+			<tr>
+				<td><a class="btn btn-success" href="{% url 'update' i.id %}">Update</a></td>
+				<td>{{ i.id }}</td>
+				<td>{{i.regno}}</td>
+				<td>{{ i.stud_name }}</td>
+				<td>{{ i.stud_contact}}</td>
+				<td>{{ i.course}}</td>
+				<td>{{ i.joining_date}}</td>
+				<td>{{ i.exam_date}}</td>
+				{% endfor %}
+			</tr>
+
+
+		</tbody>
+	</table>
+</div>
+
+{% endblock %}

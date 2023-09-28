@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block body %}
+<div class="container">
+        <h2 style="color:#b49a3c;"> Session Report</h2>
+    <style>
+    .container {
+    height: 400px; /* Set a fixed height */
+    overflow: auto; /* Enable scrolling if necessary */
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        th, td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #DDD;
+        }
+
+        th {
+          color: black;
+        }
+
+        tr:hover {
+         background-color: #D6EEEE;
+         color: black;
+        }
+    </style>
+
+  <table>
+  <thead>
+    <tr>
+      <th>Serial No</th>
+      <th>College</th>
+      <th>Course</th>
+      <th>Staff</th>
+      <th>Total Duration (hrs)</th>
+      <th>Date</th>
+      <th>Remarks</th>
+      <th>Remaining Time (hrs)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for session in sessions %}
+      <tr>
+         <td>{{ session.id }}</td>
+        <td>{{ session.college }}</td>
+        <td>{{ session.course }}</td>
+        <td>{{ session.staff }}</td>
+        <td>{{ session.duration }}</td>
+        <td>{{ session.date }}</td>
+        <td>{{ session.remarks }}</td>
+        <td>
+          {% for tieup in tieups %}
+            {% if tieup.college == session.college and tieup.course == session.course %}
+              {{ tieup.remaining_duration }}
+            {% endif %}
+          {% endfor %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!--<table>-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th>College</th>-->
+<!--      <th>Course</th>-->
+<!--      <th>Staff</th>-->
+<!--      <th>Total Duration (hrs)</th>-->
+<!--      <th>Date</th>-->
+<!--      <th>Remaining Time (hrs)</th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--    {% for session in sessions %}-->
+<!--      <tr>-->
+<!--        <td>{{ session.college }}</td>-->
+<!--        <td>{{ session.course }}</td>-->
+<!--        <td>{{ session.staff }}</td>-->
+<!--        <td>{{ session.duration }}</td>-->
+<!--        <td>{{ session.date }}</td>-->
+<!--        <td>-->
+<!--          {{ session.remaining_duration }}-->
+<!--        </td>-->
+<!--      </tr>-->
+<!--    {% endfor %}-->
+<!--  </tbody>-->
+<!--</table>-->
+
+
+
+
+</div>
+{% endblock %}

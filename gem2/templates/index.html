@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block body %}
+
+<style>
+    .link-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.link-item {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.link-item:hover {
+    background-color: #ddd;
+}
+
+</style>
+    <div class="container">
+        <div class="link-container">
+            <a href="{% url 'enquiry_form' %}" class="link-item">Enquiry Form</a><br>
+            <a href="{% url 'admission_form' %}" class="link-item">Admission Form</a><br>
+            <a href="{% url 'discontinue_form' %}" class="link-item">Discontinue Form</a><br>
+            <a href="{% url 'tieup_page' %}" class="link-item">Tieup Form</a><br>
+            <a href="{% url 'session_form' %}" class="link-item">Session Form</a><br>
+        </div>
+    </div>
+
+{% endblock %}
+
+

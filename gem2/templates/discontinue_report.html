@@ -1,0 +1,56 @@
+{% extends 'base.html'%}
+{% block body %}
+<div class="container">
+	<h2 style="color:#b49a3c;"> Discontinue Student Data</h2>
+	<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #DDD;
+
+}
+th{
+    color:black;
+
+}
+tr:hover {
+ background-color: #D6EEEE;
+ color:black;}
+</style>
+	<table>
+		<thead>
+			<tr>
+<!--				<th></th>-->
+				<th>Serial No</th>
+				<th> Reg No</th>
+				<th>Student Name</th>
+				<th>Course</th>
+				<th> Date</th>
+				<th>Reason</th>
+				</tr>
+		</thead>
+		<tbody>
+        {% for i in discontinue_report %}
+			<tr>
+<!--				<td><a class="btn btn-success" href="{% url 'update' i.id %}">Update</a></td>-->
+				<td>{{ i.id }}</td>
+				<td>{{i.regno}}</td>
+				<td>{{ i.name }}</td>
+				<td>{{ i.course}}</td>
+				<td>{{ i.discontinue_date}}</td>
+				<td>{{ i.remarks}}</td>
+
+				{% endfor %}
+			</tr>
+
+
+		</tbody>
+	</table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<style>
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+    .page-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0; /* Set your desired background color */
+        background-image: -webkit-linear-gradient( 136deg, rgb(0,0,70) 0%, rgb(28,181,224) 100%);
+    }
+
+    .form-v6-content {
+        display: flex;
+        max-width: 1200px;
+        width: 100%;
+        height: 700px;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+        background-image: -webkit-linear-gradient( 136deg, rgb(0,0,70) 0%, rgb(28,181,224) 100%);
+    }
+
+    .form-left {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .form-left img {
+        max-width: 100%;
+        height: 100%;
+    }
+
+
+.form-right {
+        flex: 1;
+<!--        padding-left: 10px;-->
+
+        height: 100%;
+        padding:10px;
+    }
+
+    .form-detail {
+
+        max-width: 400px;
+        margin-top: 10px;
+        margin: auto;
+        background: #f8f8f8;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-detail h2 {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .form-detail input,
+    .form-detail select,
+    .form-detail textarea {
+        width: 100%;
+        padding: 2px;
+        margin-bottom: 2px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+
+    }
+
+    .form-detail input[type="submit"] {
+        background: #333;
+        color: #fff;
+        border: none;
+        padding: 5px 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#id_regno').on('change', function() {
+            var regno = $(this).val();
+
+            $.ajax({
+                type: 'GET',
+                url: '/get-student-details/' + regno + '/',
+                dataType: 'json',
+                success: function(data) {
+                    $('#id_stud_name').val(data.stud_name);
+                    $('#id_course').val(data.course);
+
+                },
+                error: function() {
+                    alert('Error fetching student details.');
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+	<div class="page-content" style="padding-top: 0px;">
+		<div class="form-v6-content" >
+			<div class="form-left" >
+<!--{% if student_name and course %}-->
+<!--   <p>Student Name: {{ student_name }}</p>-->
+<!--   <p>Course: {{ course }}</p>-->
+<!--{% endif %}-->
+
+<!--{% if error_message %}-->
+<!--   <p style="color: red;">{{ error_message }}</p>-->
+<!--{% endif %}-->
+
+				<img src="{% static 'quit.PNG' %}" alt="" style=height:570px;width:500px>
+			</div>
+			<div class="form-right" >
+			<form class="form-detail" action="#" method="post">
+				{% csrf_token %}
+				<h2>Discontinue  Form</h2>
+				 {{ form.as_p }}
+
+					<div>
+					<input type="submit" name="register" class="register" value="Register">
+				</div>
+
+			</form>
+				</div>
+		</div>
+	</div>
+{% endblock %}
+

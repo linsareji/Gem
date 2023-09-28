@@ -1,0 +1,157 @@
+{% load static %}
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>RegistrationForm_v3 by Colorlib</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static 'style1.css' %}">
+
+
+<!--		&#45;&#45;base-&#45;&#45;-->
+		  <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'style_navbar.css' %}">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static 'style1.css' %}">
+</head>
+	</head>
+
+	<body>
+   <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+<!--            <a href="index.html" class="navbar-brand ml-lg-3">-->
+                <img src="{% static 'gtec.PNG' %}" alt="" style=height:80px;width:60px>
+                <h1 class="m-0 text-uppercase text-primary">
+<!--                    <i class="fa fa-book-reader mr-3"></i>-->
+                    Perumbavoor</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    <a href="{% url 'index' %}" class="nav-item nav-link active">Home</a>
+                    <a href="{% url 'enquiry_form' %}" class="nav-item nav-link">Enquiry</a>
+                    <a href="{% url 'admission' %}" class="nav-item nav-link">Admission</a>
+                   <a href="{% url 'enquiry_form' %}" class="nav-item nav-link">Exam</a>
+                    <a href="{% url 'report' %}" class="nav-item nav-link">Reports</a>
+                </div>
+                <a href="{% url 'login' %}" class="btn btn-primary py-2 px-4 d-none d-lg-block">Log out</a>
+            </div>
+        </nav>
+    </div>
+		<div class="wrapper" style="background-image: url('{% static 'enquiry.PNG' %}');">
+			<div class="inner">
+				<form action="#" method="post">
+					{% csrf_token %}
+					<h3>Admission Form</h3>
+					<div class="form-group">
+						<div class="form-wrapper">
+							<h4>Personal Details</h4><br>
+							<input type="number" name="gem_id" placeholder="Enter Register Number" class="form-control"><br><br>
+   <input type="text" name="student_name" placeholder="Enter Student name" class="form-control"><br><br>
+    <input type="text" name="student_parent" placeholder="Enter Parent name" class="form-control"><br><br>
+    <input type="number" name="parent_contact" placeholder="Parent contact number" class="form-control"><br><br>
+    <input type="textarea" name="student_address" placeholder="Enter Student Address" class="form-control"><br><br>
+    <input type="number" name="student_contact" placeholder="Enter contact number" class="form-control"><br>
+	<input type="text" name="student_qualification" placeholder="Academic Qualification" class="form-control"><br><br>
+    <label for="">Date of Birth:</label><input type="date" name="student_dob" class="form-control"><br>
+        <label for="">Gender:</label>
+
+								<select name="gender"  class="form-control">
+									<option value="male">Male</option>
+									<option value="female">Female</option>
+									<option value="other">Other</option>
+								</select>
+
+						</div>
+						<div class="form-wrapper">
+							<h4>Course Details</h4><br>
+<!--							<input type="text" name="student_course1" placeholder="Enter course1" class="form-control"><br><br>-->
+							<select name="student_course1"  class="form-control">
+									<option value="Select Course">Select Course 1</option>
+									<option value="C">C</option>
+									<option value="C++">C++</option>
+									<option value="python">Python</option>
+									<option value="java">Java</option>
+																	</select>	<br><br>
+							<select name="student_course2"  class="form-control">
+									<option value="Select Course">Select Course 2</option>
+									<option value="C">C</option>
+									<option value="C++">C++</option>
+									<option value="python">Python</option>
+									<option value="java">Java</option>
+																	</select>	<br><br>
+
+<!--    <input type="text" name="student_course2" placeholder="Enter course2" class="form-control"><br><br>-->
+<!--    <input type="text" name="student_course3" placeholder="Enter course3" class="form-control"><br><br>-->
+	<input type="number" name="course_duration" placeholder="Enter course duration" class="form-control"><br><br>
+<!--     <input type="text" name="student_scheme" placeholder="Enter Admission Scheme"class="form-control"><br><br>-->
+
+	<input type="text" name="student_fee" placeholder="Total fee" class="form-control"><br>
+							<label for="">Admission Scheme:</label>
+
+								<select name="student_scheme"  class="form-control">
+									<option value="freedom_offer">Freedom offer</option>
+									<option value="summer_offer">Summer offer</option>
+									<option value="onam_offer">Onam Offer</option>
+									<option value="xmas_offer">Xmas Offer</option>
+									<option value="Others">Others</option>
+																	</select>	<br>
+        <label for="">Joining Date :</label><input type="date" name="join_date" class="form-control" id="todayDate"><br>
+							<script>
+        document.getElementById('todayDate').valueAsDate = new Date();
+    </script>
+        <label for="">Exam Date:</label><input type="date" name="exam_date" class="form-control"><br>
+
+           <label for="">Certificate Status:</label>
+
+								<select name="cert_status"  class="form-control">
+									<option value="not_received">Not Received</option>
+									<option value="received">Received</option>
+									<option value="dispatched">Dispatched</option>
+																	</select><br>
+							<label for="">Student Status:</label>
+								<select name="student_status" id="" class="form-control">
+									<option value="continue">Continue</option>
+									<option value="discontinue">Discontinue</option>
+									</select>	<br>
+
+						</div>
+					</div>
+
+
+					<div class="form-end">
+
+						<div class="button-holder">
+							<button>Register Now</button>
+						</div>
+
+					</div>
+
+
+
+
+
+				</form>
+			</div>
+		</div>
+
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

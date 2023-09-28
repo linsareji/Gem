@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block body %}
+<style>
+  .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top:200px;
+    padding: 30px; /* Increase padding */
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    flex:1;
+
+
+}
+
+.form-control {
+    width: calc(100% - 20px); /* Adjusted padding */
+    padding: 10px;
+    margin: 10px 0; /* Increased margin */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.button-holder {
+    text-align: center;
+}
+
+.add-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px; /* Increased padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+
+    max-width: 400px; /* Set maximum width */
+    margin: 10px 0; /* Increased margin */
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
+
+
+</style>
+<div class="form-container">
+    <h2>Scheme Addition</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="scheme_name" placeholder="Enter Scheme name" class="form-control"><br><br>
+        <div class="button-holder">
+            <button class="add-button">Add Scheme</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

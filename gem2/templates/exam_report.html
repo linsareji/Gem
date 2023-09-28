@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+
+{% block body %}
+<div class="container">
+	<h2 style="color:#b49a3c;"> Exam Data</h2>
+	<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #DDD;
+
+}
+th{
+    color:black;
+
+}
+tr:hover {
+ background-color: #D6EEEE;
+ color:black;}
+</style>
+	<table>
+		<thead>
+			<tr>
+				<th>Serial No</th>
+				<th> Reg No</th>
+				<th>Student Name</th>
+				<th>Contact Number</th>
+				<th>Course</th>
+				<th>Course 2</th>
+				<th>Joinig Date</th>
+				<th>Exam Date</th>
+				</tr>
+		</thead>
+		<tbody>
+        {% for i in exam_report %}
+			<tr>
+				<td>{{ i.id }}</td>
+				<td>{{i.gemid}}</td>
+				<td>{{ i.stud_name }}</td>
+				<td>{{ i.stud_contact}}</td>
+				<td>{{ i.course1}}</td>
+				<td>{{ i.course2}}</td>
+				<td>{{ i.joining_date}}</td>
+				<td>{{ i.exam_date}}</td>
+				{% endfor %}
+			</tr>
+
+
+		</tbody>
+	</table>
+</div>
+
+{% endblock %}
+<!--</body>-->
+<!--</html>-->

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block body %}
+
+<style>
+ .link-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.link-item {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.link-item:hover {
+    background-color: #ddd;
+}
+
+
+</style>
+    <div class="container">
+        <div class="link-container">
+            <a href="{% url 'addon_clg' %}" class="link-item">Collage Addition</a><br>
+            <a href="{% url 'addon_staff' %}" class="link-item">Staff Addition</a><br>
+            <a href="{% url 'addon_course' %}" class="link-item">Course Addition</a><br>
+            <a href="{% url 'addon_scheme' %}" class="link-item">Scheme Addition</a><br>
+        </div>
+    </div>
+
+{% endblock %}
+
+

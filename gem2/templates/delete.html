@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block body %}
+<form method="POST">
+
+
+      {% csrf_token %}
+<h5>Are you sure to Join?</h5>
+<input type="submit" value="Yes">
+    </form>
+{% endblock %}

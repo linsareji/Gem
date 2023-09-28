@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block body %}
+
+<style>
+    .link-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.link-item {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.link-item:hover {
+    background-color: #ddd;
+}
+
+</style>
+    <div class="container">
+        <div class="link-container">
+            <a href="{% url 'enq_details' %}" class="link-item">Enquiry Report</a><br>
+            <a href="{% url 'stud_report' %}" class="link-item">Student Report</a><br>
+            <a href="{% url 'old_stud_report' %}" class="link-item">Old students Report</a><br>
+            <a href="{% url 'discontinue_report' %}" class="link-item">Discontinue Report</a><br>
+            <a href="{% url 'tieup_report' %}" class="link-item">Tieup Report</a><br>
+             <a href="{% url 'session_report' %}" class="link-item">Session Report</a><br>
+            <a href="{% url 'old_stud_report' %}" class="link-item">Certificate Report</a><br>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+

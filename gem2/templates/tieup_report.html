@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <h2 style="color:#b49a3c;"> Tie up Companies Data</h2>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        th, td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #DDD;
+        }
+
+        th {
+          color: black;
+        }
+
+        tr:hover {
+         background-color: #D6EEEE;
+         color: black;
+        }
+    </style>
+    <table>
+        <thead>
+            <tr>
+                <th>Serial No</th>
+                <th>Collage</th>
+                <th>Course</th>
+                <th>Fee</th>
+                <th>Duration</th>
+                <th>Tieup Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in tieup_report %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.college }}</td>
+                    <td>{{ i.course }}</td>
+                    <td>{{ i.fee }}</td>
+                    <td>{{ i.course_duration }}</td>
+                    <td>{{ i.tieup_date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

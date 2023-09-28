@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'stylereport.css' %}">
+</head>
+<body>
+<div class="container">
+	<table>
+		<thead>
+			<tr>
+				<th>Student Name</th>
+				<th>Address</th>
+				<th>Contact Number</th>
+				<th>Course</th>
+				</tr>
+		</thead>
+		<tbody>
+        {% for i in report %}
+			<tr>
+
+				<td>{{ i.name }}</td>
+				<td>{{ i.address}}</td>
+				<td>{{ i.contact}}</td>
+				<td>{{ i.course}}</td>
+				{% endfor %}
+			</tr>
+
+
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
